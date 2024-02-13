@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        section {
+            display: flex;
+            flex-direction: row; /* Arrange images in row */
+            align-items: center; /* Center horizontally */
+            padding: 50px;
+        }
+
+        .image-holder {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .image-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .popup-content {
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .popup-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        /* Additional styles for new image holders */
+        .image-holder:nth-child(odd) {
+            background-color: #3498db;
+        }
+
+        .image-holder:nth-child(even) {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Happy Valentines Day My Bebaa</h1>
+        <p>This is our first Valentine together..sooo I wanted to share some of our memories with you. (Click kre jara photos par pagluuuuuu) </p>
+    </header>
+
+    <section>
+        <div class="image-holder" onclick="openPopup('First picture with you', 'Thinking of our first memory, hmesha ek hi song yaad aata hai - Tumhe jo maine dekha, tuhe jo maine jana, jo hosh tha vo to gya. I am gonna repeat again and again, As soon as I close my eyes I can see you walking in at Azzuro and this will always be the awstruck moment.')">
+            <img src="First.jpg" alt="Couple Image 1">
+        </div>
+
+        <div class="image-holder" onclick="openPopup('Journey of lifetime begins', 'Itna sundar lag rha tu is din bss kyaa hi btau, jab tum samne aae n I got nervous bss nazar chura kr dekhta rha. I cannot remember the whole event pr I remember our masti wale photos bhar ke n yr tumhe pehli baar sabke samne touch krna was just aeeeeee kaise hi btau motuuu..')">
+            <img src="RokaCeremony.jpg" alt="Couple Image 1">
+        </div>
+
+        <div class="image-holder" onclick="openPopup('Most awkward yet most beautiful memories', 'One the most honest yaad for me, I saw us awkward and in love, you caring for me n so so much more, Abhinav ke sath candid baate, sab ke sath party, Vasu ki kahaniya n uska Macallan bolna and terrace pr tuhare flowers lete hue reaction -- ke ye kyoo kiske lie -- mai bta nai sakta bss kyaa hi tha vo sab.')">
+            <img src="PuneSunflower.jpg" alt="Couple Image 1">
+        </div>
+
+        <div class="image-holder" onclick="openPopup('Finally I could call you my wife', 'Well sachiiiii sabse kam yaad wala din pr sabse jyada memorable day, I got to call you my wife finally, ekdam maharani se lgee meri beba. I would not have imagined a perfect wife, shadi, zindgi without you. Har ek cheez har ek aadat har ek pyara moment was and is just so so so so cute. Bs pta nai kaise hi mil gae tum -- Mera jigar ka tukda.')">
+            <img src="Wedding.jpg" alt="Couple Image 1">
+        </div>
+
+        <div class="image-holder" onclick="openPopup('Candid Love', 'Well can you just kiss me right now.')">
+            <img src="Honeymoon.jpg" alt="Couple Image 1">
+        </div>
+
+
+
+
+
+        <!-- Add more image holders as needed -->
+
+    </section>
+
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">Close</span>
+            <div id="popupImageContainer"></div>
+            <div class="content">
+                <h2 id="popupTitle"></h2>
+                <p id="popupDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Memories</p>
+    </footer>
+
+    <script>
+        function openPopup(title, description) {
+            const popupContainer = document.getElementById('popupContainer');
+            const popupImageContainer = document.getElementById('popupImageContainer');
+            const popupTitle = document.getElementById('popupTitle');
+            const popupDescription = document.getElementById('popupDescription');
+
+            const imageSrc = event.target.src;
+
+            popupImageContainer.innerHTML = `<img src="${imageSrc}" alt="Popup Image">`;
+            popupTitle.textContent = title;
+            popupDescription.textContent = description;
+
+            popupContainer.style.display = 'flex';
+        }
+
+        function closePopup() {
+            const popupContainer = document.getElementById('popupContainer');
+            popupContainer.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
